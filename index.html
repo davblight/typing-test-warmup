@@ -7,7 +7,7 @@
     <div id="app">
         <h1>Typing Test</h1>
         <p>{{ randomSentence }}</p><br>
-        <input type="text" v-model="userSentence" placeholder="Type the sentence above"><br><br>
+        <input type="text" v-model="userSentence" placeholder="Type the sentence above" v-on:input="startRace"><br><br>
         <div v-if="finishedTyping">
             <p>Total Time: {{ totalTime }}</p><br>
             <button v-on:click="resetTest()">Reset Test with Same Sentence</button>
