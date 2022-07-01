@@ -31,7 +31,7 @@ var app = new Vue({
         },
         resetWithNewSentence: function () {
             this.getRandomSentence();
-            this.userSentence = "";
+            this.resetTest();
         }
     },
     computed: {
