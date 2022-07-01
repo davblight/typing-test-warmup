@@ -10,12 +10,10 @@ var app = new Vue({
         randomSentence: "",
         userSentence: "",
         totalTime: 0,
-        startTime: 0,
+        startTime: Date(),
         hasStarted: 0,
     },
     methods:{
-        startRace: function () {
-        },
         getRandomSentence: function () {
             let sentenceIndex = Math.floor(Math.random() * 3);
             this.randomSentence = SENTENCES[sentenceIndex];
@@ -48,9 +46,9 @@ var app = new Vue({
         },
         startRace: function () {
             if (this.userSentence != "" && this.hasStarted == 0){
-                this.hasStarted = 1;
-                this.startTime = new Date;
+                this.startTime = new Date();
                 console.log("Start time:", this.startTime);
+                this.hasStarted = 1;
             }
         },
     },
