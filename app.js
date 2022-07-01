@@ -7,11 +7,14 @@ const SENTENCES = [
 var app = new Vue({
     el: "#app",
     data:{
+        randomSentence: "",
     },
     methods:{
         startRace: function () {
         },
         getRandomSentence: function () {
+            let sentenceIndex = Math.floor(Math.random() * 3);
+            this.randomSentence = SETNTENCES[sentenceIndex];
         },
         calculateTotalTime: function () {
         },
@@ -34,6 +37,7 @@ var app = new Vue({
         }
     },
     created: function () {
+        this.getRandomSentence()
     }
 });
 
