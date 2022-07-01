@@ -6,6 +6,13 @@
 <body>
     <div id="app">
         <h1>Typing Test</h1>
+        <p>{{ randomSentence }}</p><br>
+        <input type="text" v-model="userSentence" placeholder="Type the sentence above"><br><br>
+        <div v-if="finishedTyping">
+            <p>Total Time: {{ totalTime }}</p><br>
+            <button v-on:click="resetTest()">Reset Test with Same Sentence</button>
+            <button v-on:click="resetWithNewSentence()">Reset Test with New Sentence</button>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="app.js"></script>

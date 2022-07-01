@@ -8,13 +8,14 @@ var app = new Vue({
     el: "#app",
     data:{
         randomSentence: "",
+        userSentence: "",
     },
     methods:{
         startRace: function () {
         },
         getRandomSentence: function () {
             let sentenceIndex = Math.floor(Math.random() * 3);
-            this.randomSentence = SETNTENCES[sentenceIndex];
+            this.randomSentence = SENTENCES[sentenceIndex];
         },
         calculateTotalTime: function () {
         },
@@ -28,7 +29,7 @@ var app = new Vue({
         // use it like a variable (v-if="finishedTyping")
         finishedTyping: function () {
             // you probably wanna use your variable here in place of these awful ones
-            if (this.SENTENCE_TO_BE_TYPED == this.SENTENCE_USER_IS_TYPING) {
+            if (this.randomSentence == this.userSentence) {
                 this.calculateTotalTime();
                 return true;
             } else {
