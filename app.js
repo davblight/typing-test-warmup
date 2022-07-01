@@ -14,6 +14,8 @@ var app = new Vue({
         getRandomSentence: function () {
         },
         calculateTotalTime: function () {
+            let currentSeconds = getTime()/1000
+            return currentSeconds - this.startTime
         },
         resetTest: function () {
         },
