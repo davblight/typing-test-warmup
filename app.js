@@ -21,8 +21,10 @@ var app = new Vue({
             this.randomSentence = SENTENCES[sentenceIndex];
         },
         calculateTotalTime: function () {
-            let currentSeconds = getTime()/1000
-            this.totalTime = currentSeconds - this.startTime
+            let currentTime = new Date();
+            let currentSeconds = currentTime.getTime()/1000;
+            this.totalTime = currentSeconds - this.startTime.getTime()/1000;
+            return this.totalTime
         },
         resetTest: function () {
             this.userSentence = "";
