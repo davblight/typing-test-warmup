@@ -30,6 +30,13 @@ var app = new Vue({
         resetWithNewSentence: function () {
             this.getRandomSentence();
             this.userSentence = "";
+        },
+        startRace: function () {
+            if (this.userSentence != "" && this.hasStarted == 0){
+                this.hasStarted = 1;
+                this.startTime = new Date();
+                console.log("Start time:", this.startTime);
+            }
         }
     },
     computed: {
@@ -42,13 +49,6 @@ var app = new Vue({
                 return true;
             } else {
                 return false;
-            }
-        },
-        startRace: function () {
-            if (this.userSentence != "" && this.hasStarted == 0){
-                this.hasStarted = 1;
-                this.startTime = new Date();
-                console.log("Start time:", this.startTime);
             }
         },
     },
