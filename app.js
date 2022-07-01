@@ -7,6 +7,7 @@ const SENTENCES = [
 var app = new Vue({
     el: "#app",
     data:{
+        totalTime: 0
     },
     methods:{
         startRace: function () {
@@ -15,7 +16,7 @@ var app = new Vue({
         },
         calculateTotalTime: function () {
             let currentSeconds = getTime()/1000
-            return currentSeconds - this.startTime
+            this.totalTime = currentSeconds - this.startTime
         },
         resetTest: function () {
         },
