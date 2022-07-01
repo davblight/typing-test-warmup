@@ -7,12 +7,9 @@ const SENTENCES = [
 var app = new Vue({
     el: "#app",
     data:{
-<<<<<<< HEAD
         randomSentence: "",
         userSentence: "",
-=======
         totalTime: 0
->>>>>>> eae61985b67d0d72c1a8be5fa893c1d0bbd2f728
     },
     methods:{
         startRace: function () {
@@ -22,8 +19,10 @@ var app = new Vue({
             this.randomSentence = SENTENCES[sentenceIndex];
         },
         calculateTotalTime: function () {
-            let currentSeconds = getTime()/1000
-            this.totalTime = currentSeconds - this.startTime
+            let currentTime = new Date();
+            console.log(currentTime);
+            let currentSeconds = currentTime.getTime()/1000
+            this.totalTime = currentSeconds - this.startTime.getTime()/1000
         },
         resetTest: function () {
         },
