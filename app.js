@@ -20,9 +20,9 @@ var app = new Vue({
         },
         calculateTotalTime: function () {
             let currentTime = new Date();
-            console.log(currentTime);
-            let currentSeconds = currentTime.getTime()/1000
-            this.totalTime = currentSeconds - this.startTime.getTime()/1000
+            let currentSeconds = currentTime.getTime()/1000;
+            this.totalTime = currentSeconds - this.startTime.getTime()/1000;
+            return this.totalTime
         },
         resetTest: function () {
         },
