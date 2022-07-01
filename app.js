@@ -7,10 +7,10 @@ const SENTENCES = [
 var app = new Vue({
     el: "#app",
     data:{
+        startTime: 0,
+        hasStarted: 0,
     },
     methods:{
-        startRace: function () {
-        },
         getRandomSentence: function () {
         },
         calculateTotalTime: function () {
@@ -31,7 +31,14 @@ var app = new Vue({
             } else {
                 return false;
             }
-        }
+        },
+        startRace: function () {
+            if (this.userSentence != "" && this.hasStarted == 0){
+                this.hasStarted = 1;
+                this.startTime = new Date;
+                console.log("Start time:", this.startTime);
+            }
+        },
     },
     created: function () {
     }
