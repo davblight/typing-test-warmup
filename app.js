@@ -7,12 +7,11 @@ const SENTENCES = [
 var app = new Vue({
     el: "#app",
     data:{
-<<<<<<< HEAD
         randomSentence: "",
         userSentence: "",
-=======
-        totalTime: 0
->>>>>>> eae61985b67d0d72c1a8be5fa893c1d0bbd2f728
+        totalTime: 0,
+        startTime: 0,
+        hasStarted: 0,
     },
     methods:{
         startRace: function () {
@@ -26,8 +25,11 @@ var app = new Vue({
             this.totalTime = currentSeconds - this.startTime
         },
         resetTest: function () {
+            this.userSentence = "";
         },
         resetWithNewSentence: function () {
+            this.getRandomSentence();
+            this.userSentence = "";
         }
     },
     computed: {
@@ -41,7 +43,14 @@ var app = new Vue({
             } else {
                 return false;
             }
-        }
+        },
+        startRace: function () {
+            if (this.userSentence != "" && this.hasStarted == 0){
+                this.hasStarted = 1;
+                this.startTime = new Date;
+                console.log("Start time:", this.startTime);
+            }
+        },
     },
     created: function () {
         this.getRandomSentence()
