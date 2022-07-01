@@ -11,6 +11,7 @@ var app = new Vue({
         userSentence: "",
         totalTime: 0,
         startTime: 0,
+        wordsPerMinute: 0,
         hasStarted: 0,
     },
     methods:{
@@ -24,6 +25,18 @@ var app = new Vue({
             this.totalTime = currentSeconds - (this.startTime.getTime()/1000);
             this.totalTime = Math.floor(this.totalTime * 1000) / 1000;
             return this.totalTime
+        },
+        calculateWordsPerMinute: function () {
+            let letterCount = 0;
+            for (letter in this.userSentence) {
+                letterCount += 1;
+            }
+
+            let words = letterCount / 5;
+            let wordsPerSecond = words / this.totalTime;
+            this.wordsPerMinute = Math.floor(wordsPerSecond * 60);
+            return this.wordsPerMinute
+
         },
         resetTest: function () {
             this.userSentence = "";
@@ -48,6 +61,7 @@ var app = new Vue({
             // you probably wanna use your variable here in place of these awful ones
             if (this.randomSentence == this.userSentence) {
                 this.calculateTotalTime();
+                this.calculateWordsPerMinute();
                 return true;
             } else {
                 return false;

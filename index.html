@@ -9,7 +9,8 @@
         <p>{{ randomSentence }}</p><br>
         <input type="text" v-model="userSentence" placeholder="Type the sentence above" v-on:input="startRace()" style="width: 90%;"><br><br>
         <div v-if="finishedTyping">
-            <p>Total Time: {{ totalTime }}</p><br>
+            <p>Total Time: {{ totalTime }}</p>
+            <p>Words Per Minute: {{ wordsPerMinute }}</p><br>
             <button v-on:click="resetTest()">Reset Test with Same Sentence</button>
             <button v-on:click="resetWithNewSentence()">Reset Test with New Sentence</button>
         </div>
