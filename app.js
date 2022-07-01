@@ -21,11 +21,13 @@ var app = new Vue({
         calculateTotalTime: function () {
             let currentTime = new Date();
             let currentSeconds = currentTime.getTime()/1000;
-            this.totalTime = currentSeconds - this.startTime.getTime()/1000;
+            this.totalTime = currentSeconds - (this.startTime.getTime()/1000);
+            this.totalTime = Math.floor(this.totalTime * 1000) / 1000;
             return this.totalTime
         },
         resetTest: function () {
             this.userSentence = "";
+            this.hasStarted = 0;
         },
         resetWithNewSentence: function () {
             this.getRandomSentence();
